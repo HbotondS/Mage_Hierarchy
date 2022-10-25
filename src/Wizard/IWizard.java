@@ -1,11 +1,18 @@
 package Wizard;
 
 import Magic.IMagic;
+import Wizard.Details.BeardType;
+import Wizard.Details.HairColor;
+import Wizard.Details.Race;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public abstract class IWizard {
+    protected Race race;
+    protected String name;
+    protected HairColor hairColor;
+    protected BeardType beardType;
     protected int numberOfApprenticeCanHave;
     protected IMagic magic;
     protected final List<IWizard> apprentices = new ArrayList<>();
