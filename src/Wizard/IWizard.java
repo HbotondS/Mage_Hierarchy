@@ -19,6 +19,7 @@ public abstract class IWizard {
 
     public void acceptNewApprentice(IWizard newApprentice) {
         if (this.getApprenticesNumber() < numberOfApprenticeCanHave) {
+            this.speak("I, " + this.name + ", started teaching: " + newApprentice.name);
             this.apprentices.add(newApprentice);
         } else {
             this.speak("I cannot have more apprentice.");

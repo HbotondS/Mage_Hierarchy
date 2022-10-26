@@ -25,6 +25,7 @@ public class Apprentice extends IWizard {
 
     @Override
     public void castMagic() {
+        this.speak("I " + this.name + ", trying:");
         this.magic.cast();
     }
 
