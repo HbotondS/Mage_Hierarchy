@@ -9,4 +9,4 @@ A simple university project to demonstrate some coding design patterns.
 3. Builder: for creating and customizing the mages
 
 ### UML diagram:
-<img src=./Mage%20hierarchy%20%20UML.png />
+<img src=./Mage%20hierarchy%20%UML.png />
