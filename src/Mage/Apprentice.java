@@ -1,17 +1,16 @@
-package Wizard;
+package Mage;
 
 import Magic.IMagic;
-import Wizard.Details.BeardType;
-import Wizard.Details.HairColor;
-import Wizard.Details.Race;
+import Mage.Details.BeardType;
+import Mage.Details.HairColor;
+import Mage.Details.Race;
 
-public class Wizard extends Apprentice {
+public class Apprentice extends IMage {
 
-    //default constructor
-    public Wizard() {}
+    // default constructor
+    public Apprentice() {}
 
-    private Wizard(Builder builder) {
-        this.numberOfApprenticeCanHave = 1;
+    private Apprentice(Builder builder) {
         this.race = builder.race;
         this.name = builder.name;
         this.hairColor = builder.hairColor;
@@ -55,7 +54,7 @@ public class Wizard extends Apprentice {
         }
 
         public Apprentice create() {
-            return new Wizard(this);
+            return new Apprentice(this);
         }
     }
 }

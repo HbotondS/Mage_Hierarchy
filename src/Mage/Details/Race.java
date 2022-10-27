@@ -1,4 +1,4 @@
-package Wizard.Details;
+package Mage.Details;
 
 public enum Race {
     Human,

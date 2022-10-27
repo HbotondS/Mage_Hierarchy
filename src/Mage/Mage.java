@@ -1,29 +1,44 @@
-package Wizard;
+package Mage;
 
-import Wizard.Details.BeardType;
-import Wizard.Details.HairColor;
-import Wizard.Details.Race;
-import Wizard.Details.Title;
+import Magic.IMagic;
+import Mage.Details.BeardType;
+import Mage.Details.HairColor;
+import Mage.Details.Race;
 
-public class Archwizard extends Wizard {
-    private Title title;
+import java.util.ArrayList;
+import java.util.List;
 
-    // default constructor
-    public Archwizard() {}
+public class Mage extends IMage {
+    private final List<IMage> apprentices = new ArrayList<>();
 
-    private Archwizard (Builder builder) {
-        this.numberOfApprenticeCanHave = 5;
+    //default constructor
+    public Mage() {}
+
+    private Mage(Builder builder) {
         this.race = builder.race;
         this.name = builder.name;
         this.hairColor = builder.hairColor;
         this.beardType = builder.beardType;
-        this.title = builder.title;
+    }
+
+    @Override
+    public void learnMagic(IMagic newMagic) {
+        this.magic = newMagic;
     }
 
     @Override
     public void castMagic() {
-        this.speak("I " + this.name + ", " + this.title +", going to use: ");
+        this.speak("I " + this.name + ", trying:");
         this.magic.cast();
+    }
+
+    public void acceptNewApprentice(IMage newApprentice) {
+        this.speak("I, " + this.name + ", started teaching: " + newApprentice.name);
+        this.apprentices.add(newApprentice);
+    }
+
+    public int getApprenticesNumber() {
+        return apprentices.size();
     }
 
     public static class Builder {
@@ -31,7 +46,6 @@ public class Archwizard extends Wizard {
         private final String name;
         private HairColor hairColor;
         private BeardType beardType;
-        private Title title;
 
         public Builder(Race race, String name) {
             if (race == null || name == null) {
@@ -52,13 +66,8 @@ public class Archwizard extends Wizard {
             return this;
         }
 
-        public Builder withTitle(Title title) {
-            this.title = title;
-            return this;
-        }
-
-        public Archwizard create() {
-            return new Archwizard(this);
+        public Mage create() {
+            return new Mage(this);
         }
     }
 }
