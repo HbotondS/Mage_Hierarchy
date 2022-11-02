@@ -19,4 +19,8 @@ public abstract class IMage {
     public abstract void learnMagic(IMagic newMagic);
     public abstract void castMagic();
 
+    public String getName() {
+        return name;
+    }
+
 }

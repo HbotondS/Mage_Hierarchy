@@ -21,6 +21,10 @@ public class Mage extends IMage {
         this.beardType = builder.beardType;
     }
 
+    public List<IMage> getApprentices() {
+        return apprentices;
+    }
+
     @Override
     public void learnMagic(IMagic newMagic) {
         this.magic = newMagic;
